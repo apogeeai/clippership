@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Menu,
   X,
@@ -15,9 +15,16 @@ import {
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  const scrollToSection = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat"
+      className="min-h-screen bg-cover bg-center bg-no-repeat min-w-[430px]"
       style={{
         backgroundImage:
           'url("https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80")',
@@ -29,7 +36,7 @@ function App() {
             <img 
               src="/logo-circle.png" 
               alt="Clippership Logo" 
-              className="h-[70px] w-[70px] mr-2"
+              className="h-[50px] w-[50px] mr-2"
             />
             <span className="text-white text-3xl font-bold font-montserrat">Clippership</span>
           </div>
@@ -37,13 +44,27 @@ function App() {
             <a href="#" className="text-white hover:text-gray-300 font-montserrat">
               Home
             </a>
-            <a href="#services" className="text-white hover:text-gray-300 font-montserrat">
+            <a 
+              href="#services" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('services');
+              }}
+              className="text-white hover:text-gray-300 font-montserrat"
+            >
               Services
             </a>
-            <a href="#about" className="text-white hover:text-gray-300 font-montserrat">
+            <a 
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('about');
+              }}
+              className="text-white hover:text-gray-300 font-montserrat"
+            >
               About
             </a>
-            <a href="#contact" className="text-white hover:text-gray-300 font-montserrat">
+            <a href="mailto:theclippershipmb@gmail.com" className="text-white hover:text-gray-300 font-montserrat">
               Contact
             </a>
           </nav>
@@ -57,17 +78,33 @@ function App() {
 
         {isMenuOpen && (
           <div className="md:hidden bg-black bg-opacity-90 absolute top-20 left-0 right-0 p-4">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4 items-end">
               <a href="#" className="text-white hover:text-gray-300 font-montserrat">
                 Home
               </a>
-              <a href="#services" className="text-white hover:text-gray-300 font-montserrat">
+              <a 
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('services');
+                  setIsMenuOpen(false);
+                }}
+                className="text-white hover:text-gray-300 font-montserrat"
+              >
                 Services
               </a>
-              <a href="#about" className="text-white hover:text-gray-300 font-montserrat">
+              <a 
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('about');
+                  setIsMenuOpen(false);
+                }}
+                className="text-white hover:text-gray-300 font-montserrat"
+              >
                 About
               </a>
-              <a href="#contact" className="text-white hover:text-gray-300 font-montserrat">
+              <a href="mailto:theclippershipmb@gmail.com" className="text-white hover:text-gray-300 font-montserrat">
                 Contact
               </a>
             </nav>
@@ -75,7 +112,7 @@ function App() {
         )}
 
         <main className="container mx-auto px-4 py-16 text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-garamond">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-montserrat">
             Welcome to Clippership
           </h1>
           <p className="text-xl md:text-2xl mb-8 font-montserrat">
@@ -87,10 +124,10 @@ function App() {
         </main>
 
         {/* Services Section */}
-        <section id="services" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+        <section id="services" className="py-20 bg-white bg-opacity-80">
+          <div className="container mx-auto px-4 max-w-[1260px]">
             <h2 className="text-4xl font-bold text-center mb-4 font-montserrat">Our Services</h2>
-            <p className="text-center text-gray-600 mb-12 font-montserrat">(Base prices displayed, may vary based on location and combos)</p>
+            <p className="text-center text-gray-600 mb-12 font-montserrat">Base prices displayed</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <img 
@@ -110,33 +147,33 @@ function App() {
                 <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
                   <div>
                     <h3 className="text-xl font-semibold font-montserrat">Haircut</h3>
-                    <p className="text-gray-600 font-montserrat">Classic, modern, or edgy. We can do it all. Neck shave included.</p>
+                    <p className="text-gray-600 font-montserrat">Classic, modern, or edgy. We can do it all.</p>
                   </div>
                   <span className="text-2xl font-bold font-montserrat">$45</span>
                 </div>
 
                 <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
                   <div>
-                    <h3 className="text-xl font-semibold font-montserrat">Haircut + Trim</h3>
-                    <p className="text-gray-600 font-montserrat">Add a trim and shape to your beard along with your haircut</p>
+                    <h3 className="text-xl font-semibold font-montserrat">Haircut + Beard Trim</h3>
+                    <p className="text-gray-600 font-montserrat">Add a trim and shape to your beard along with your haircut.</p>
                   </div>
-                  <span className="text-2xl font-bold font-montserrat">$55</span>
-                </div>
-
-                <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
-                  <div>
-                    <h3 className="text-xl font-semibold font-montserrat">Shave</h3>
-                    <p className="text-gray-600 font-montserrat">The ultimate in luxury. Facial cleanse, hot towels, and an ultra-smooth straight razor shave.</p>
-                  </div>
-                  <span className="text-2xl font-bold font-montserrat">$50</span>
+                  <span className="text-2xl font-bold font-montserrat">+$10</span>
                 </div>
 
                 <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
                   <div>
                     <h3 className="text-xl font-semibold font-montserrat">Haircut + Shave</h3>
-                    <p className="text-gray-600 font-montserrat">The total package.</p>
+                    <p className="text-gray-600 font-montserrat">The ultimate in luxury. Facial cleanse, hot towels, and an ultra-smooth straight razor shave.</p>
                   </div>
-                  <span className="text-2xl font-bold font-montserrat">$80</span>
+                  <span className="text-2xl font-bold font-montserrat">+$50</span>
+                </div>
+
+                <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
+                  <div>
+                    <h3 className="text-xl font-semibold font-montserrat">Kids and Seniors</h3>
+                    <p className="text-gray-600 font-montserrat">Discounts available.</p>
+                  </div>
+                  <span className="text-2xl font-bold font-montserrat">$45</span>
                 </div>
               </div>
             </div>
@@ -144,23 +181,29 @@ function App() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 bg-gray-100">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16 font-montserrat">About</h2>
+        <section id="about" className="py-20 bg-gray-100 bg-opacity-0">
+          <div className="container mx-auto px-4 max-w-[1260px]">
+            <h2 className="text-4xl font-bold text-center mb-16 font-montserrat text-white">About</h2>
             
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div className="lg:col-span-4 order-2 lg:order-1">
-                  <img 
-                    src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                    alt="Tim Profile"
-                    className="w-full h-[400px] object-cover rounded-lg shadow-lg"
-                  />
+                  <div className="relative w-[352px] h-[400px] overflow-hidden rounded-lg">
+                    <img 
+                      src="public/tim_profile.jpg"
+                      alt="Tim Profile"
+                      className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
+                      style={{
+                        clipPath: 'polygon(0 0, 100% 0, 100% 85%,  )',
+                        objectPosition: 'center left'
+                      }}
+                    />
+                  </div>
                 </div>
                 
                 <div className="lg:col-span-8 order-1 lg:order-2">
                   <div className="space-y-6 font-montserrat">
-                    <p className="text-gray-700 text-lg leading-relaxed">
+                    <p className="text-white text-lg leading-relaxed">
                       Tim Almeida has been a barber in the Boston area for 15 years.
                       He doesn't specialize in any one area of the trade that he
                       loves, instead branching out to learn how to do every type of
@@ -169,7 +212,7 @@ function App() {
                       something a little different, and The Clippership was born.
                     </p>
                     
-                    <p className="text-gray-700 text-lg leading-relaxed">
+                    <p className="text-white text-lg leading-relaxed">
                       A lover of the ocean, Tim wanted to give his new mobile
                       barbershop the feel of a sailboat cabin, while having the
                       nostalgic feel of an old-school barbershop at the same time.
@@ -199,12 +242,15 @@ function App() {
                 <Phone className="mr-2" /> Contact
               </h3>
               <p className="font-montserrat">Phone: (781) 520 - 6378</p>
-              <p className="font-montserrat">Email: theclippershipmb@gmail.com</p>
+              <a href="mailto:theclippershipmb@gmail.com" className="font-montserrat text-white hover:text-gray-300">
+                Email: theclippershipmb@gmail.com
+              </a>
             </div>
             <div className="flex flex-col items-center md:items-start">
               <h3 className="text-xl font-semibold mb-4 flex items-center font-montserrat">
                 <MapPin className="mr-2" /> Location
               </h3>
+              <p className="font-montserrat">We come to you!</p>
               <p className="font-montserrat">123 Barber Street</p>
               <p className="font-montserrat">Styleville, ST 12345</p>
               <div className="flex space-x-4 mt-4">
