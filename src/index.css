@@ -12,4 +12,36 @@
   .font-montserrat {
     font-family: 'Montserrat', sans-serif;
   }
+
+  .service-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                0 0 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-container {
+    @apply relative;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
