@@ -8,7 +8,6 @@ import {
   Instagram,
   Facebook,
   Twitter,
-  Scissors,
   Linkedin,
 } from "lucide-react";
 
@@ -26,8 +25,12 @@ function App() {
       <div className="bg-black bg-opacity-70 min-h-screen">
         <header className="container mx-auto px-4 py-6 flex justify-between items-center">
           <div className="flex items-center">
-            <Scissors className="h-10 w-10 text-white mr-2" />
-            <span className="text-white text-2xl font-bold">Clippership</span>
+            <img 
+              src="/logo-circle.png" 
+              alt="Clippership Logo" 
+              className="h-[70px] w-[70px] mr-2"
+            />
+            <span className="text-white text-3xl font-bold">Clippership</span>
           </div>
           <nav className="hidden md:flex space-x-6">
             <a href="#" className="text-white hover:text-gray-300">
@@ -125,7 +128,7 @@ function App() {
             </div>
           </div>
           <div className="text-center mt-8">
-            <p className="text-sm">©Copyright ClipperShip 2025</p>
+          
           </div>
         </footer>
       </div>
