@@ -9,6 +9,7 @@ import {
   Facebook,
   Twitter,
   Scissors,
+  Linkedin,
 } from "lucide-react";
 
 function App() {
@@ -105,17 +106,26 @@ function App() {
               <p>123 Barber Street</p>
               <p>Styleville, ST 12345</p>
               <div className="flex space-x-4 mt-4">
-                <a href="#" className="hover:text-gray-300">
-                  <Instagram />
+                <a href="https://www.instagram.com/theclippership/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  <Instagram size={24} />
                 </a>
-                <a href="#" className="hover:text-gray-300">
-                  <Facebook />
+                <a href="https://m.facebook.com/theclippership/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  <Facebook size={24} />
                 </a>
-                <a href="#" className="hover:text-gray-300">
-                  <Twitter />
+                <a href="https://g.page/Theclippership?av" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  <MapPin size={24} />
+                </a>
+                <a href="https://www.linkedin.com/in/the-clippership-mobile-barbershop-a34963201/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  <Linkedin size={24} />
+                </a>
+                <a href="https://twitter.com/ClippershipThe?s=07" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  <Twitter size={24} />
                 </a>
               </div>
             </div>
+          </div>
+          <div className="text-center mt-8">
+            <p className="text-sm">©Copyright ClipperShip 2025</p>
           </div>
         </footer>
       </div>
