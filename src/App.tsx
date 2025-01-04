@@ -9,6 +9,7 @@ import {
   Facebook,
   Twitter,
   Linkedin,
+  Scissors,
 } from "lucide-react";
 
 function App() {
@@ -30,19 +31,19 @@ function App() {
               alt="Clippership Logo" 
               className="h-[70px] w-[70px] mr-2"
             />
-            <span className="text-white text-3xl font-bold">Clippership</span>
+            <span className="text-white text-3xl font-bold font-montserrat">Clippership</span>
           </div>
           <nav className="hidden md:flex space-x-6">
-            <a href="#" className="text-white hover:text-gray-300">
+            <a href="#" className="text-white hover:text-gray-300 font-montserrat">
               Home
             </a>
-            <a href="#" className="text-white hover:text-gray-300">
+            <a href="#services" className="text-white hover:text-gray-300 font-montserrat">
               Services
             </a>
-            <a href="#" className="text-white hover:text-gray-300">
+            <a href="#about" className="text-white hover:text-gray-300 font-montserrat">
               About
             </a>
-            <a href="#" className="text-white hover:text-gray-300">
+            <a href="#contact" className="text-white hover:text-gray-300 font-montserrat">
               Contact
             </a>
           </nav>
@@ -57,16 +58,16 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden bg-black bg-opacity-90 absolute top-20 left-0 right-0 p-4">
             <nav className="flex flex-col space-y-4">
-              <a href="#" className="text-white hover:text-gray-300">
+              <a href="#" className="text-white hover:text-gray-300 font-montserrat">
                 Home
               </a>
-              <a href="#" className="text-white hover:text-gray-300">
+              <a href="#services" className="text-white hover:text-gray-300 font-montserrat">
                 Services
               </a>
-              <a href="#" className="text-white hover:text-gray-300">
+              <a href="#about" className="text-white hover:text-gray-300 font-montserrat">
                 About
               </a>
-              <a href="#" className="text-white hover:text-gray-300">
+              <a href="#contact" className="text-white hover:text-gray-300 font-montserrat">
                 Contact
               </a>
             </nav>
@@ -74,40 +75,138 @@ function App() {
         )}
 
         <main className="container mx-auto px-4 py-16 text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-garamond">
             Welcome to Clippership
           </h1>
-          <p className="text-xl md:text-2xl mb-8">
+          <p className="text-xl md:text-2xl mb-8 font-montserrat">
             The world's first solar-powered mobile barbershop
           </p>
-          <button className="bg-white text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300">
+          <button className="bg-white text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300 font-montserrat">
             Book Now
           </button>
         </main>
 
+        {/* Services Section */}
+        <section id="services" className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-4 font-montserrat">Our Services</h2>
+            <p className="text-center text-gray-600 mb-12 font-montserrat">(Base prices displayed, may vary based on location and combos)</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <img 
+                src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                alt="Mobile Barbershop Interior"
+                className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                alt="Barbershop Service"
+                className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+              />
+            </div>
+
+            <div className="max-w-3xl mx-auto">
+              <div className="space-y-8">
+                <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
+                  <div>
+                    <h3 className="text-xl font-semibold font-montserrat">Haircut</h3>
+                    <p className="text-gray-600 font-montserrat">Classic, modern, or edgy. We can do it all. Neck shave included.</p>
+                  </div>
+                  <span className="text-2xl font-bold font-montserrat">$45</span>
+                </div>
+
+                <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
+                  <div>
+                    <h3 className="text-xl font-semibold font-montserrat">Haircut + Trim</h3>
+                    <p className="text-gray-600 font-montserrat">Add a trim and shape to your beard along with your haircut</p>
+                  </div>
+                  <span className="text-2xl font-bold font-montserrat">$55</span>
+                </div>
+
+                <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
+                  <div>
+                    <h3 className="text-xl font-semibold font-montserrat">Shave</h3>
+                    <p className="text-gray-600 font-montserrat">The ultimate in luxury. Facial cleanse, hot towels, and an ultra-smooth straight razor shave.</p>
+                  </div>
+                  <span className="text-2xl font-bold font-montserrat">$50</span>
+                </div>
+
+                <div className="flex justify-between items-center p-6 bg-gray-100 rounded-lg hover:shadow-md transition duration-300">
+                  <div>
+                    <h3 className="text-xl font-semibold font-montserrat">Haircut + Shave</h3>
+                    <p className="text-gray-600 font-montserrat">The total package.</p>
+                  </div>
+                  <span className="text-2xl font-bold font-montserrat">$80</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="py-20 bg-gray-100">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-16 font-montserrat">About</h2>
+            
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-4 order-2 lg:order-1">
+                  <img 
+                    src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Tim Profile"
+                    className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+                  />
+                </div>
+                
+                <div className="lg:col-span-8 order-1 lg:order-2">
+                  <div className="space-y-6 font-montserrat">
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      Tim Almeida has been a barber in the Boston area for 15 years.
+                      He doesn't specialize in any one area of the trade that he
+                      loves, instead branching out to learn how to do every type of
+                      haircut and service to the best of his ability. After all
+                      those years working behind a barber chair, he wanted to do
+                      something a little different, and The Clippership was born.
+                    </p>
+                    
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      A lover of the ocean, Tim wanted to give his new mobile
+                      barbershop the feel of a sailboat cabin, while having the
+                      nostalgic feel of an old-school barbershop at the same time.
+                      The Clippership brings the ultimate barbershop experience to
+                      your front door or office in the most convenient fashion. All
+                      aboard!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <footer className="bg-black bg-opacity-80 text-white py-8">
           <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center md:items-start">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
+              <h3 className="text-xl font-semibold mb-4 flex items-center font-montserrat">
                 <Clock className="mr-2" /> Hours
               </h3>
-              <p>Mon-Fri: 9am - 7pm</p>
-              <p>Sat: 10am - 6pm</p>
-              <p>Sun: Closed</p>
+              <p className="font-montserrat">Mon-Fri: 9am - 7pm</p>
+              <p className="font-montserrat">Sat: 10am - 6pm</p>
+              <p className="font-montserrat">Sun: Closed</p>
             </div>
             <div className="flex flex-col items-center md:items-start">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
+              <h3 className="text-xl font-semibold mb-4 flex items-center font-montserrat">
                 <Phone className="mr-2" /> Contact
               </h3>
-              <p>Phone: (781) 520 - 6378</p>
-              <p>Email: theclippershipmb@gmail.com</p>
+              <p className="font-montserrat">Phone: (781) 520 - 6378</p>
+              <p className="font-montserrat">Email: theclippershipmb@gmail.com</p>
             </div>
             <div className="flex flex-col items-center md:items-start">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
+              <h3 className="text-xl font-semibold mb-4 flex items-center font-montserrat">
                 <MapPin className="mr-2" /> Location
               </h3>
-              <p>123 Barber Street</p>
-              <p>Styleville, ST 12345</p>
+              <p className="font-montserrat">123 Barber Street</p>
+              <p className="font-montserrat">Styleville, ST 12345</p>
               <div className="flex space-x-4 mt-4">
                 <a href="https://www.instagram.com/theclippership/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
                   <Instagram size={24} />
@@ -126,9 +225,6 @@ function App() {
                 </a>
               </div>
             </div>
-          </div>
-          <div className="text-center mt-8">
-          
           </div>
         </footer>
       </div>
